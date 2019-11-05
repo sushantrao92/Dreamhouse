@@ -7,9 +7,9 @@ exports.formatProperties = properties => {
     let elements = [];
     properties.forEach(property => {
             elements.push({
-                title: property.get("Title__c"),
-                subtitle: `${property.get("Address__c")}, ${property.get("City__c")} ${property.get("State__c")} · ${numeral(property.get("Price__c")).format('$0,0')}`,
-                "image_url": property.get("Picture__c"),
+                title: property.get("New177__Title__c"),
+                subtitle: `${property.get("New177__Address__c")}, ${property.get("New177__City__c")} ${property.get("New177__State__c")} · ${numeral(property.get("New177__Price__c")).format('$0,0')}`,
+                "image_url": property.get("New177__Picture__c"),
                 "buttons": [
                     {
                         "type": "postback",
