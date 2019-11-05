@@ -53,9 +53,12 @@ let findProperties = (params) => {
                 ${where}
                 LIMIT 5`;
         org.query({query: q}, (err, resp) => {
+            console.log('q-->'+q);
+            console.log('q-->'+q);
             if (err) {
                 reject("An error as occurred");
             } else {
+                console.log('q-->'+resp.records);
                 resolve(resp.records);
             }
         });
