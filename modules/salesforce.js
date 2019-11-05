@@ -10,7 +10,7 @@ let nforce = require('nforce'),
 let org = nforce.createConnection({
     clientId: SF_CLIENT_ID,
     clientSecret: SF_CLIENT_SECRET,
-    redirectUri: 'https://fbbot-integration.herokuapp.com/webhook',
+    redirectUri: 'http://localhost:3000/oauth/_callback',
     mode: 'single',
     autoRefresh: true
 });
@@ -18,6 +18,7 @@ let org = nforce.createConnection({
 let login = () => {
     org.authenticate({username: SF_USER_NAME, password: SF_PASSWORD}, err => {
         if (err) {
+            console.log("Authentication Errorurr");
             console.error("Authentication error");
             console.error(err);
         } else {
@@ -58,7 +59,7 @@ let findProperties = (params) => {
             if (err) {
                 reject("An error as occurred");
             } else {
-                console.log('q-->'+resp.records);
+                console.log('q-response->'+resp.records);
                 resolve(resp.records);
             }
         });
