@@ -53,16 +53,8 @@ let findProperties = (params) => {
                 FROM property__c
                 ${where}
                 LIMIT 5`;*/
-        let q = `SELECT id,
-                    title__c,
-                    address__c,
-                    city__c,
-                    state__c,
-                    price__c,
-                    beds__c,
-                    baths__c,
-                    picture__c
-                FROM property__c`;
+        let q = `SELECT id   ,name                 
+                FROM account`;
         org.query({query: q}, (err, resp) => {
             console.log('q-->'+q);
             console.log('q-->'+q);
