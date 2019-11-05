@@ -41,7 +41,7 @@ let findProperties = (params) => {
         }
     }
     return new Promise((resolve, reject) => {
-        let q = `SELECT id,
+        /*let q = `SELECT id,
                     title__c,
                     address__c,
                     city__c,
@@ -52,7 +52,8 @@ let findProperties = (params) => {
                     picture__c
                 FROM property__c
                 ${where}
-                LIMIT 5`;
+                LIMIT 5`;*/
+        let q = `SELECT id FROM contact LIMIT 5`;
         org.query({query: q}, (err, resp) => {
             console.log('q-->'+q);
             console.log('q-->'+q);
