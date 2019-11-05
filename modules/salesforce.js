@@ -53,7 +53,7 @@ let findProperties = (params) => {
                 FROM property__c
                 ${where}
                 LIMIT 5`;*/
-        let q = `SELECT id   ,name                 
+        let q = `SELECT id  ,name                 
                 FROM account`;
         org.query({query: q}, (err, resp) => {
             console.log('q-->'+q);
