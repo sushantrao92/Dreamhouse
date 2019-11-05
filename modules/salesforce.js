@@ -41,20 +41,12 @@ let findProperties = (params) => {
         }
     }
     return new Promise((resolve, reject) => {
-        /*let q = `SELECT id,
-                    title__c,
-                    address__c,
-                    city__c,
-                    state__c,
-                    price__c,
-                    beds__c,
-                    baths__c,
-                    picture__c
-                FROM property__c
+        let q = `SELECT id,New177__title__c,New177__address__c, New177__city__c, New177__state__c,
+        New177__price__c, New177__beds__c,New177__baths__c, New177__picture__c FROM New177__Property__c
                 ${where}
-                LIMIT 5`;*/
-        let q = `SELECT id  ,name                 
-                FROM account LIMIT 1`;
+                LIMIT 5`;
+        /*let q = `SELECT id  ,name                 
+                FROM account LIMIT 1`;*/
         org.query({query: q}, (err, resp) => {
             console.log('q-->'+q);
             console.log('q-->'+q);
