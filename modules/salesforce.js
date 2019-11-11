@@ -144,13 +144,14 @@ let createCase = (propertyId, customerName, customerId) => {
 
 //Added to Display Top Opportunities
 
-let SearchOpportunities = (category) => {
+let SearchOpportunities = (params) => {
     return new Promise((resolve, reject) => {
+        console.log('params.Oppcount'+params.Oppcount);
         let q = `SELECT Id, IsDeleted, AccountId, IsPrivate, Name, Description,
          StageName, Amount, Probability, ExpectedRevenue, TotalOpportunityQuantity,
           CloseDate, Type, NextStep, LeadSource, IsClosed, IsWon, ForecastCategory, 
         CampaignId, HasOpportunityLineItem, Pricebook2Id, OwnerId FROM Opportunity
-        ORDER BY Amount LIMIT ${category}`;
+        ORDER BY Amount LIMIT  ${params.Oppcount}`;
         console.log(q);
         org.query({query: q}, (err, resp) => {
             if (err) {
