@@ -29,8 +29,10 @@ exports.formatProperties = properties => {
                 ]
             })
         }
+       
     );
     return {
+        
         "attachment": {
             "type": "template",
             "payload": {
@@ -46,9 +48,9 @@ exports.formatPriceChanges = priceChanges => {
     priceChanges.forEach(priceChange => {
             let property = priceChange.get("Parent");
             elements.push({
-                title: `${property.Address__c}, ${property.City__c} ${property.State__c}`,
+                title: `${property.New177__Address__c}, ${property.New177__City__c} ${property.New177__State__c}`,
                 subtitle: `Old price: ${numeral(priceChange.get("OldValue")).format('$0,0')} · New price: ${numeral(priceChange.get("NewValue")).format('$0,0')} on ${moment(priceChange.get("CreatedDate")).format("MMM Do")}`,
-                "image_url": property.Picture__c,
+                "image_url": property.New177__Picture__c,
                 "buttons": [
                     {
                         "type": "postback",
@@ -94,22 +96,22 @@ exports.formatAppointment = property => {
             "type": "template",
             "payload": {
                 "template_type": "button",
-                "text": `Select one of the available appointments below at ${property.get("Address__c")} in ${property.get("City__c")}.`,
+                "text": `Select one of the available appointments below at ${property.get("New177__Address__c")} in ${property.get("New177__City__c")}.`,
                 "buttons": [
                     {
                         "type": "postback",
                         "title": options[0],
-                        "payload": "confirm_visit," + property.get("Address__c") + " in " + property.get("City__c") + "," + options[0]
+                        "payload": "confirm_visit," + property.get("New177__Address__c") + " in " + property.get("New177__City__c") + "," + options[0]
                     },
                     {
                         "type": "postback",
                         "title": options[1],
-                        "payload": "confirm_visit," + property.get("Address__c") + " in " + property.get("City__c") + "," + options[1]
+                        "payload": "confirm_visit," + property.get("New177__Address__c") + " in " + property.get("New177__City__c") + "," + options[1]
                     },
                     {
                         "type": "postback",
                         "title": options[2],
-                        "payload": "confirm_visit," + property.get("Address__c") + " in " + property.get("City__c") + "," + options[2]
+                        "payload": "confirm_visit," + property.get("New177__Address__c") + " in " + property.get("New177__City__c") + "," + options[2]
                     }]
             }
         }
