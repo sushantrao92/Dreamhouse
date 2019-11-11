@@ -141,3 +141,43 @@ exports.formatBroker = broker => {
         }
     };
 };
+
+
+exports.formatOpportunity = properties => {
+    let elements = [];
+    properties.forEach(property => {
+            elements.push({
+                title: property.get("Name"),
+                subtitle: property.get("Description"),
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": "Schedule visit",
+                        "payload": "schedule_visit," + property.getId()
+                    },
+                    {
+                        "type": "postback",
+                        "title": "View broker info",
+                        "payload": "contact_broker," + property.getId()
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Contact me",
+                        "payload": "contact_me," + property.getId()
+                    }
+                ]
+            })
+        }
+       
+    );
+    return {
+        
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": elements
+            }
+        }
+    };
+};
