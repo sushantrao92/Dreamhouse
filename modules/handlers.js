@@ -66,6 +66,7 @@ exports.help = (sender) => {
 exports.Opportunities = (sender, values) => {
     messenger.send({text: `OK, looking for top ${values[1]} opportunities...`}, sender);
     salesforce.SearchOpportunities().then(priceChanges => {
+        console.log('priceChanges'+priceChanges);
         messenger.send(formatter.formatPriceChanges(priceChanges), sender);
     });
 };
