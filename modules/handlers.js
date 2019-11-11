@@ -62,3 +62,10 @@ exports.hi = (sender) => {
 exports.help = (sender) => {
     messenger.send({text: `You can ask me questions like "Find houses in Boston", "3 bedrooms in Boston", "3 bedrooms in Boston between 500000 and 750000", "show me price changes"`}, sender);
 };
+
+exports.Opportunities = (sender, values) => {
+    messenger.send({text: `OK, looking for top ${values[1]} opportunities...`}, sender);
+    salesforce.SearchOpportunities().then(priceChanges => {
+        messenger.send(formatter.formatPriceChanges(priceChanges), sender);
+    });
+};

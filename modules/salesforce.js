@@ -142,6 +142,28 @@ let createCase = (propertyId, customerName, customerId) => {
 
 };
 
+//Added to Display Top Opportunities
+
+let SearchOpportunities = (category) => {
+    return new Promise((resolve, reject) => {
+        let q = `SELECT Id, IsDeleted, AccountId, IsPrivate, Name, Description,
+         StageName, Amount, Probability, ExpectedRevenue, TotalOpportunityQuantity,
+          CloseDate, Type, NextStep, LeadSource, IsClosed, IsWon, ForecastCategory, 
+        CampaignId, HasOpportunityLineItem, Pricebook2Id, OwnerId FROM Opportunity
+        ORDER BY Amount LIMIT ${category}`;
+        console.log(q);
+        org.query({query: q}, (err, resp) => {
+            if (err) {
+                console.error(err);
+                reject("An error as occurred");
+            } else {
+                resolve(resp.records);
+            }
+        });
+    });
+
+};
+
 login();
 
 exports.org = org;
