@@ -38,6 +38,7 @@ let findProperties = (params) => {
         if (params.priceMax) parts.push(`price__c<=${params.priceMax}`);
         if (parts.length>0) {
             where = "WHERE " + parts.join(' AND ');
+            console.log('where'+where);
         }
     }
     return new Promise((resolve, reject) => {
