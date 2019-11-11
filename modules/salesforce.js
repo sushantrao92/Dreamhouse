@@ -32,10 +32,10 @@ let findProperties = (params) => {
     if (params) {
         let parts = [];
         if (params.id) parts.push(`id='${params.id}'`);
-        if (params.city) parts.push(`city__c='${params.city}'`);
-        if (params.bedrooms) parts.push(`beds__c=${params.bedrooms}`);
-        if (params.priceMin) parts.push(`price__c>=${params.priceMin}`);
-        if (params.priceMax) parts.push(`price__c<=${params.priceMax}`);
+        if (params.city) parts.push(`New177__city__c='${params.city}'`);
+        if (params.bedrooms) parts.push(`New177__beds__c=${params.bedrooms}`);
+        if (params.priceMin) parts.push(`New177__price__c>=${params.priceMin}`);
+        if (params.priceMax) parts.push(`New177__price__c<=${params.priceMax}`);
         if (parts.length>0) {
             where = "WHERE " + parts.join(' AND ');
             console.log('where'+where);
